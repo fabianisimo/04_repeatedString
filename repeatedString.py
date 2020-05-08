@@ -12,15 +12,21 @@ def datos_entrada():
 
 datos = datos_entrada()
 
+## def repeatedString(s, n):
+##     largo_s = len(s)
+##     string = ""
+##     while len(string)+largo_s-1 < n:
+##         string = string + s
+##     string = string + s[0:n - len(string)]
+##     return string.count("a")
+
 def repeatedString(s, n):
-    largo_s = len(s)
-    string = ""
-    while len(string)+largo_s-1 < n:
-        string = string + s
-    string = string + s[0:n - len(string)]
-    return string.count("a")
+    aes = s.count("a") * (n // len(s))
+    if n//len(s) < n/len(s):
+        cola = n - ((n//len(s))*(len(s)))
+        aes = aes +  s[:cola].count("a")
+    return aes
 
 
-
-resultado = repeatedString("a",1000000000000)
+resultado = repeatedString("ae",31)
 print (resultado)
